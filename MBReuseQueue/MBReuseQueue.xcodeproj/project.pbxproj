@@ -7,106 +7,165 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F94EF7729F13E4A00285E20 /* MBReuseQueue.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2F94EF7629F13E4A00285E20 /* MBReuseQueue.docc */; };
-		2F94EF7D29F13E4A00285E20 /* MBReuseQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F94EF7229F13E4A00285E20 /* MBReuseQueue.framework */; };
-		2F94EF8229F13E4A00285E20 /* MBReuseQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F94EF8129F13E4A00285E20 /* MBReuseQueueTests.swift */; };
-		2F94EF8329F13E4A00285E20 /* MBReuseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F94EF7529F13E4A00285E20 /* MBReuseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F93A3B429F15D9F00CECECE /* MBReuseQueue.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3B329F15D9F00CECECE /* MBReuseQueue.docc */; };
+		2F93A3BA29F15D9F00CECECE /* MBReuseQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F93A3AF29F15D9F00CECECE /* MBReuseQueue.framework */; };
+		2F93A3BF29F15D9F00CECECE /* MBReuseQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3BE29F15D9F00CECECE /* MBReuseQueueTests.swift */; };
+		2F93A3CB29F1610E00CECECE /* MBReuseQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3CA29F1610E00CECECE /* MBReuseQueue.swift */; };
+		2F93A3CE29F162C200CECECE /* MBAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3CD29F162C200CECECE /* MBAppDelegate.swift */; };
+		2F93A3D029F1632100CECECE /* MBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3CF29F1632100CECECE /* MBButton.swift */; };
+		2F93A3D229F1636600CECECE /* ACButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A3D129F1636600CECECE /* ACButton.xib */; };
+		2F93A3D429F1637800CECECE /* MBDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3D329F1637800CECECE /* MBDataViewController.swift */; };
+		2F93A3D629F163AA00CECECE /* MBPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3D529F163AA00CECECE /* MBPageViewController.swift */; };
+		2F93A3D829F163EF00CECECE /* ACReuseQueueDemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A3D729F163EF00CECECE /* ACReuseQueueDemo-Info.plist */; };
+		2F93A3DC29F1641B00CECECE /* MBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3DB29F1641B00CECECE /* MBTableViewController.swift */; };
+		2F93A3DE29F164B700CECECE /* MBReusableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3DD29F164B700CECECE /* MBReusableObject.swift */; };
+		2F93A3E029F1659F00CECECE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3DF29F1659F00CECECE /* main.swift */; };
+		2F93A3E829F165D000CECECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A3E129F165D000CECECE /* Images.xcassets */; };
+		2F93A3E929F165D000CECECE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A3E329F165D000CECECE /* InfoPlist.strings */; };
+		2F93A3EA29F165D000CECECE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A3E629F165D000CECECE /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2F94EF7E29F13E4A00285E20 /* PBXContainerItemProxy */ = {
+		2F93A3BB29F15D9F00CECECE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2F94EF6929F13E4A00285E20 /* Project object */;
+			containerPortal = 2F93A3A629F15D9F00CECECE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2F94EF7129F13E4A00285E20;
+			remoteGlobalIDString = 2F93A3AE29F15D9F00CECECE;
 			remoteInfo = MBReuseQueue;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F94EF7229F13E4A00285E20 /* MBReuseQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBReuseQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F94EF7529F13E4A00285E20 /* MBReuseQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBReuseQueue.h; sourceTree = "<group>"; };
-		2F94EF7629F13E4A00285E20 /* MBReuseQueue.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MBReuseQueue.docc; sourceTree = "<group>"; };
-		2F94EF7C29F13E4A00285E20 /* MBReuseQueueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBReuseQueueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F94EF8129F13E4A00285E20 /* MBReuseQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBReuseQueueTests.swift; sourceTree = "<group>"; };
+		2F93A3AF29F15D9F00CECECE /* MBReuseQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBReuseQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F93A3B329F15D9F00CECECE /* MBReuseQueue.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MBReuseQueue.docc; sourceTree = "<group>"; };
+		2F93A3B929F15D9F00CECECE /* MBReuseQueueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBReuseQueueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F93A3BE29F15D9F00CECECE /* MBReuseQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBReuseQueueTests.swift; sourceTree = "<group>"; };
+		2F93A3CA29F1610E00CECECE /* MBReuseQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBReuseQueue.swift; sourceTree = "<group>"; };
+		2F93A3CD29F162C200CECECE /* MBAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBAppDelegate.swift; sourceTree = "<group>"; };
+		2F93A3CF29F1632100CECECE /* MBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBButton.swift; sourceTree = "<group>"; };
+		2F93A3D129F1636600CECECE /* ACButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACButton.xib; sourceTree = "<group>"; };
+		2F93A3D329F1637800CECECE /* MBDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDataViewController.swift; sourceTree = "<group>"; };
+		2F93A3D529F163AA00CECECE /* MBPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPageViewController.swift; sourceTree = "<group>"; };
+		2F93A3D729F163EF00CECECE /* ACReuseQueueDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ACReuseQueueDemo-Info.plist"; sourceTree = "<group>"; };
+		2F93A3DB29F1641B00CECECE /* MBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTableViewController.swift; sourceTree = "<group>"; };
+		2F93A3DD29F164B700CECECE /* MBReusableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBReusableObject.swift; sourceTree = "<group>"; };
+		2F93A3DF29F1659F00CECECE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2F93A3E129F165D000CECECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2F93A3E429F165D000CECECE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		2F93A3E729F165D000CECECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2F94EF6F29F13E4A00285E20 /* Frameworks */ = {
+		2F93A3AC29F15D9F00CECECE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2F94EF7929F13E4A00285E20 /* Frameworks */ = {
+		2F93A3B629F15D9F00CECECE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F94EF7D29F13E4A00285E20 /* MBReuseQueue.framework in Frameworks */,
+				2F93A3BA29F15D9F00CECECE /* MBReuseQueue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F94EF6829F13E4A00285E20 = {
+		2F93A3A529F15D9F00CECECE = {
 			isa = PBXGroup;
 			children = (
-				2F94EF7429F13E4A00285E20 /* MBReuseQueue */,
-				2F94EF8029F13E4A00285E20 /* MBReuseQueueTests */,
-				2F94EF7329F13E4A00285E20 /* Products */,
+				2F93A3B129F15D9F00CECECE /* MBReuseQueue */,
+				2F93A3C929F15DB900CECECE /* MBReuseQueueDemo */,
+				2F93A3BD29F15D9F00CECECE /* MBReuseQueueTests */,
+				2F93A3B029F15D9F00CECECE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2F94EF7329F13E4A00285E20 /* Products */ = {
+		2F93A3B029F15D9F00CECECE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F94EF7229F13E4A00285E20 /* MBReuseQueue.framework */,
-				2F94EF7C29F13E4A00285E20 /* MBReuseQueueTests.xctest */,
+				2F93A3AF29F15D9F00CECECE /* MBReuseQueue.framework */,
+				2F93A3B929F15D9F00CECECE /* MBReuseQueueTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2F94EF7429F13E4A00285E20 /* MBReuseQueue */ = {
+		2F93A3B129F15D9F00CECECE /* MBReuseQueue */ = {
 			isa = PBXGroup;
 			children = (
-				2F94EF7529F13E4A00285E20 /* MBReuseQueue.h */,
-				2F94EF7629F13E4A00285E20 /* MBReuseQueue.docc */,
+				2F93A3DD29F164B700CECECE /* MBReusableObject.swift */,
+				2F93A3CA29F1610E00CECECE /* MBReuseQueue.swift */,
+				2F93A3B329F15D9F00CECECE /* MBReuseQueue.docc */,
 			);
 			path = MBReuseQueue;
 			sourceTree = "<group>";
 		};
-		2F94EF8029F13E4A00285E20 /* MBReuseQueueTests */ = {
+		2F93A3BD29F15D9F00CECECE /* MBReuseQueueTests */ = {
 			isa = PBXGroup;
 			children = (
-				2F94EF8129F13E4A00285E20 /* MBReuseQueueTests.swift */,
+				2F93A3BE29F15D9F00CECECE /* MBReuseQueueTests.swift */,
 			);
 			path = MBReuseQueueTests;
+			sourceTree = "<group>";
+		};
+		2F93A3C929F15DB900CECECE /* MBReuseQueueDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2F93A3E529F165D000CECECE /* Base.lproj */,
+				2F93A3E229F165D000CECECE /* en.lproj */,
+				2F93A3E129F165D000CECECE /* Images.xcassets */,
+				2F93A3CD29F162C200CECECE /* MBAppDelegate.swift */,
+				2F93A3CF29F1632100CECECE /* MBButton.swift */,
+				2F93A3D129F1636600CECECE /* ACButton.xib */,
+				2F93A3D329F1637800CECECE /* MBDataViewController.swift */,
+				2F93A3D529F163AA00CECECE /* MBPageViewController.swift */,
+				2F93A3D729F163EF00CECECE /* ACReuseQueueDemo-Info.plist */,
+				2F93A3DB29F1641B00CECECE /* MBTableViewController.swift */,
+				2F93A3DF29F1659F00CECECE /* main.swift */,
+			);
+			path = MBReuseQueueDemo;
+			sourceTree = "<group>";
+		};
+		2F93A3E229F165D000CECECE /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				2F93A3E329F165D000CECECE /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		2F93A3E529F165D000CECECE /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				2F93A3E629F165D000CECECE /* Main_iPhone.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2F94EF6D29F13E4A00285E20 /* Headers */ = {
+		2F93A3AA29F15D9F00CECECE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F94EF8329F13E4A00285E20 /* MBReuseQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2F94EF7129F13E4A00285E20 /* MBReuseQueue */ = {
+		2F93A3AE29F15D9F00CECECE /* MBReuseQueue */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F94EF8629F13E4A00285E20 /* Build configuration list for PBXNativeTarget "MBReuseQueue" */;
+			buildConfigurationList = 2F93A3C329F15D9F00CECECE /* Build configuration list for PBXNativeTarget "MBReuseQueue" */;
 			buildPhases = (
-				2F94EF6D29F13E4A00285E20 /* Headers */,
-				2F94EF6E29F13E4A00285E20 /* Sources */,
-				2F94EF6F29F13E4A00285E20 /* Frameworks */,
-				2F94EF7029F13E4A00285E20 /* Resources */,
+				2F93A3AA29F15D9F00CECECE /* Headers */,
+				2F93A3AB29F15D9F00CECECE /* Sources */,
+				2F93A3AC29F15D9F00CECECE /* Frameworks */,
+				2F93A3AD29F15D9F00CECECE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -114,46 +173,47 @@
 			);
 			name = MBReuseQueue;
 			productName = MBReuseQueue;
-			productReference = 2F94EF7229F13E4A00285E20 /* MBReuseQueue.framework */;
+			productReference = 2F93A3AF29F15D9F00CECECE /* MBReuseQueue.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2F94EF7B29F13E4A00285E20 /* MBReuseQueueTests */ = {
+		2F93A3B829F15D9F00CECECE /* MBReuseQueueTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F94EF8929F13E4A00285E20 /* Build configuration list for PBXNativeTarget "MBReuseQueueTests" */;
+			buildConfigurationList = 2F93A3C629F15D9F00CECECE /* Build configuration list for PBXNativeTarget "MBReuseQueueTests" */;
 			buildPhases = (
-				2F94EF7829F13E4A00285E20 /* Sources */,
-				2F94EF7929F13E4A00285E20 /* Frameworks */,
-				2F94EF7A29F13E4A00285E20 /* Resources */,
+				2F93A3B529F15D9F00CECECE /* Sources */,
+				2F93A3B629F15D9F00CECECE /* Frameworks */,
+				2F93A3B729F15D9F00CECECE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2F94EF7F29F13E4A00285E20 /* PBXTargetDependency */,
+				2F93A3BC29F15D9F00CECECE /* PBXTargetDependency */,
 			);
 			name = MBReuseQueueTests;
 			productName = MBReuseQueueTests;
-			productReference = 2F94EF7C29F13E4A00285E20 /* MBReuseQueueTests.xctest */;
+			productReference = 2F93A3B929F15D9F00CECECE /* MBReuseQueueTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2F94EF6929F13E4A00285E20 /* Project object */ = {
+		2F93A3A629F15D9F00CECECE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					2F94EF7129F13E4A00285E20 = {
+					2F93A3AE29F15D9F00CECECE = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
-					2F94EF7B29F13E4A00285E20 = {
+					2F93A3B829F15D9F00CECECE = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
-			buildConfigurationList = 2F94EF6C29F13E4A00285E20 /* Build configuration list for PBXProject "MBReuseQueue" */;
+			buildConfigurationList = 2F93A3A929F15D9F00CECECE /* Build configuration list for PBXProject "MBReuseQueue" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,26 +221,31 @@
 				en,
 				Base,
 			);
-			mainGroup = 2F94EF6829F13E4A00285E20;
-			productRefGroup = 2F94EF7329F13E4A00285E20 /* Products */;
+			mainGroup = 2F93A3A529F15D9F00CECECE;
+			productRefGroup = 2F93A3B029F15D9F00CECECE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2F94EF7129F13E4A00285E20 /* MBReuseQueue */,
-				2F94EF7B29F13E4A00285E20 /* MBReuseQueueTests */,
+				2F93A3AE29F15D9F00CECECE /* MBReuseQueue */,
+				2F93A3B829F15D9F00CECECE /* MBReuseQueueTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2F94EF7029F13E4A00285E20 /* Resources */ = {
+		2F93A3AD29F15D9F00CECECE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F93A3E829F165D000CECECE /* Images.xcassets in Resources */,
+				2F93A3E929F165D000CECECE /* InfoPlist.strings in Resources */,
+				2F93A3EA29F165D000CECECE /* Main_iPhone.storyboard in Resources */,
+				2F93A3D829F163EF00CECECE /* ACReuseQueueDemo-Info.plist in Resources */,
+				2F93A3D229F1636600CECECE /* ACButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2F94EF7A29F13E4A00285E20 /* Resources */ = {
+		2F93A3B729F15D9F00CECECE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -190,34 +255,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2F94EF6E29F13E4A00285E20 /* Sources */ = {
+		2F93A3AB29F15D9F00CECECE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F94EF7729F13E4A00285E20 /* MBReuseQueue.docc in Sources */,
+				2F93A3D029F1632100CECECE /* MBButton.swift in Sources */,
+				2F93A3DC29F1641B00CECECE /* MBTableViewController.swift in Sources */,
+				2F93A3E029F1659F00CECECE /* main.swift in Sources */,
+				2F93A3DE29F164B700CECECE /* MBReusableObject.swift in Sources */,
+				2F93A3CB29F1610E00CECECE /* MBReuseQueue.swift in Sources */,
+				2F93A3CE29F162C200CECECE /* MBAppDelegate.swift in Sources */,
+				2F93A3B429F15D9F00CECECE /* MBReuseQueue.docc in Sources */,
+				2F93A3D629F163AA00CECECE /* MBPageViewController.swift in Sources */,
+				2F93A3D429F1637800CECECE /* MBDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2F94EF7829F13E4A00285E20 /* Sources */ = {
+		2F93A3B529F15D9F00CECECE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F94EF8229F13E4A00285E20 /* MBReuseQueueTests.swift in Sources */,
+				2F93A3BF29F15D9F00CECECE /* MBReuseQueueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2F94EF7F29F13E4A00285E20 /* PBXTargetDependency */ = {
+		2F93A3BC29F15D9F00CECECE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F94EF7129F13E4A00285E20 /* MBReuseQueue */;
-			targetProxy = 2F94EF7E29F13E4A00285E20 /* PBXContainerItemProxy */;
+			target = 2F93A3AE29F15D9F00CECECE /* MBReuseQueue */;
+			targetProxy = 2F93A3BB29F15D9F00CECECE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		2F93A3E329F165D000CECECE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F93A3E429F165D000CECECE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F93A3E629F165D000CECECE /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F93A3E729F165D000CECECE /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		2F94EF8429F13E4A00285E20 /* Debug */ = {
+		2F93A3C129F15D9F00CECECE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,7 +372,7 @@
 			};
 			name = Debug;
 		};
-		2F94EF8529F13E4A00285E20 /* Release */ = {
+		2F93A3C229F15D9F00CECECE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -337,9 +429,10 @@
 			};
 			name = Release;
 		};
-		2F94EF8729F13E4A00285E20 /* Debug */ = {
+		2F93A3C429F15D9F00CECECE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -363,14 +456,16 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		2F94EF8829F13E4A00285E20 /* Release */ = {
+		2F93A3C529F15D9F00CECECE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -399,9 +494,10 @@
 			};
 			name = Release;
 		};
-		2F94EF8A29F13E4A00285E20 /* Debug */ = {
+		2F93A3C729F15D9F00CECECE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3345MULYZ;
@@ -415,9 +511,10 @@
 			};
 			name = Debug;
 		};
-		2F94EF8B29F13E4A00285E20 /* Release */ = {
+		2F93A3C829F15D9F00CECECE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3345MULYZ;
@@ -434,34 +531,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F94EF6C29F13E4A00285E20 /* Build configuration list for PBXProject "MBReuseQueue" */ = {
+		2F93A3A929F15D9F00CECECE /* Build configuration list for PBXProject "MBReuseQueue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2F94EF8429F13E4A00285E20 /* Debug */,
-				2F94EF8529F13E4A00285E20 /* Release */,
+				2F93A3C129F15D9F00CECECE /* Debug */,
+				2F93A3C229F15D9F00CECECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F94EF8629F13E4A00285E20 /* Build configuration list for PBXNativeTarget "MBReuseQueue" */ = {
+		2F93A3C329F15D9F00CECECE /* Build configuration list for PBXNativeTarget "MBReuseQueue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2F94EF8729F13E4A00285E20 /* Debug */,
-				2F94EF8829F13E4A00285E20 /* Release */,
+				2F93A3C429F15D9F00CECECE /* Debug */,
+				2F93A3C529F15D9F00CECECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F94EF8929F13E4A00285E20 /* Build configuration list for PBXNativeTarget "MBReuseQueueTests" */ = {
+		2F93A3C629F15D9F00CECECE /* Build configuration list for PBXNativeTarget "MBReuseQueueTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2F94EF8A29F13E4A00285E20 /* Debug */,
-				2F94EF8B29F13E4A00285E20 /* Release */,
+				2F93A3C729F15D9F00CECECE /* Debug */,
+				2F93A3C829F15D9F00CECECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2F94EF6929F13E4A00285E20 /* Project object */;
+	rootObject = 2F93A3A629F15D9F00CECECE /* Project object */;
 }
