@@ -6,23 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
-//protocol MBReusableObject: NSObject {
-//
-//    init(identifier: String!)
-//
-//    var reuseIdentifier: String! { get set }
-//
-//    func prepareForReuse()
-//}
-
-
-protocol MBReusableObject: NSObject {
-
-    init(identifier: String!)
-
-    var reuseIdentifier: String! { get set }
-
+protocol MBReusableObject: AnyObject {
+    var reuseIdentifier: String? { get set }
     func prepareForReuse()
-
 }
+
+//extension UITableViewCell: MBReusableObject {}
+//extension UICollectionReusableView: MBReusableObject {}
+

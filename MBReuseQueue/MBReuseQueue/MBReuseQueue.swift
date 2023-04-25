@@ -5,207 +5,138 @@
 //  Created by Sem Koliesnikov on 20/04/2023.
 //
 
+
 import Foundation
 import UIKit
 
-let MBReuseQueueEmptyException: String! = "MBReuseQueueEmptyException"
+let MBReuseQueueEmptyException = "MBReuseQueueEmptyException"
 
-
-class MBReuseQueue: NSObject {
-
-//    var maxUnusedCount: UInt
-    //    private(set) var unusedCount: UInt = 0
-    //    private(set) var usedCount: UInt = 0
-    //    private(set) var count: UInt = 0
+class MBReuseQueue {
+    private var dictionaryOfSetsOfUnusedObjects = [String: NSMutableSet]()
+    private var dictionaryOfSetsOfUsedObjects = [String: NSMutableSet]()
+    var dictionaryOfRegisteredClassesOrNibs = [String: Any]()
     
-    func registerNib(forObjectReuseIdentifier: UINib) -> NSString {
-        
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAllUnusedObjects), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     }
     
-    private var _dictionaryOfSetsOfUnusedObjects: NSMutableDictionary!
-    private var dictionaryOfSetsOfUnusedObjects: NSMutableDictionary! {
-        get {
-            if (_dictionaryOfSetsOfUnusedObjects == nil) {
-                _dictionaryOfSetsOfUnusedObjects = NSMutableDictionary()
-            }
-            return _dictionaryOfSetsOfUnusedObjects
-        }
-        set { _dictionaryOfSetsOfUnusedObjects = newValue }
-    }
-    private var _dictionaryOfSetsOfUsedObjects: NSMutableDictionary!
-    private var dictionaryOfSetsOfUsedObjects: NSMutableDictionary! {
-        get {
-            if (_dictionaryOfSetsOfUsedObjects == nil) {
-                _dictionaryOfSetsOfUsedObjects = NSMutableDictionary()
-            }
-            return _dictionaryOfSetsOfUsedObjects
-        }
-        set { _dictionaryOfSetsOfUsedObjects = newValue }
-    }
-    private var _dictionaryOfRegisteredClassesOrNibs: NSMutableDictionary!
-    private var dictionaryOfRegisteredClassesOrNibs: NSMutableDictionary! {
-        get {
-            if (_dictionaryOfRegisteredClassesOrNibs == nil) {
-                _dictionaryOfRegisteredClassesOrNibs = NSMutableDictionary()
-            }
-            return _dictionaryOfRegisteredClassesOrNibs
-        }
-        set { _dictionaryOfRegisteredClassesOrNibs = newValue }
-    }
-    
-//    override init() {
-//         self = super.init()
-//         if (self != nil) {
-//                NotificationCenter.default.addObserver(self, selector:Selector(("removeAllUnusedObjects")), name: UIApplication.didReceiveMemoryWarningNotification, object:nil)
-//            }
-//            return self
-//        }
-//
-    
-    func dealloc() {
+    deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    class func defaultQueue() -> Self {
-        var reuseQueue: MBReuseQueue = { MBReuseQueue() } ()
-        //        var onceToken: (&onceToken, { _reuseQueue = MBReuseQueue() })
-        return reuseQueue as! Self
-    }
-    
+    static let defaultQueue = MBReuseQueue()
     
     // MARK: - private accessors
     
-    func setOfUnusedObjectsWithIdentifier(identifier: String!) -> NSMutableSet! {
-        var unusedSet: NSMutableSet! = self.dictionaryOfSetsOfUnusedObjects[identifier as Any] as? NSMutableSet
-        if (unusedSet == nil) {
-            unusedSet = NSMutableSet()
-            self.dictionaryOfSetsOfUnusedObjects[identifier as Any] = unusedSet
+    private func setOfUnusedObjects(withIdentifier identifier: String) -> NSMutableSet {
+        if let unusedSet = dictionaryOfSetsOfUnusedObjects[identifier] {
+            return unusedSet
         }
+        let unusedSet = NSMutableSet()
+        dictionaryOfSetsOfUnusedObjects[identifier] = unusedSet
         return unusedSet
     }
     
-    func setOfUsedObjectsWithIdentifier(identifier: String!) -> NSMutableSet! {
-        var usedSet: NSMutableSet! = self.dictionaryOfSetsOfUsedObjects[identifier!] as? NSMutableSet
-        if (usedSet == nil) {
-            usedSet = NSMutableSet()
-            self.dictionaryOfSetsOfUsedObjects[identifier as Any] = usedSet
+    private func setOfUsedObjects(withIdentifier identifier: String) -> NSMutableSet {
+        if let usedSet = dictionaryOfSetsOfUsedObjects[identifier] {
+            return usedSet
         }
+        let usedSet = NSMutableSet()
+        dictionaryOfSetsOfUsedObjects[identifier] = usedSet
         return usedSet
     }
     
-    // `dictionaryOfRegisteredClassesOrNibs` has moved as a getter.
-    
+    private func dictionaryForRegisteredClassesOrNibs() -> [String: Any] {
+        if dictionaryOfRegisteredClassesOrNibs.isEmpty {
+            dictionaryOfRegisteredClassesOrNibs = [:]
+        }
+        return dictionaryOfRegisteredClassesOrNibs
+    }
     
     // MARK: - counts
     
-    func unusedCount() -> UInt {
-        var unusedCount: UInt = 0
-        for set: NSSet? in self.dictionaryOfSetsOfUnusedObjects.allValues {
-            unusedCount += set.count()
+    var unusedCount: Int {
+        var unusedCount = 0
+        for set in dictionaryOfSetsOfUnusedObjects.values {
+            unusedCount += set.count
         }
         return unusedCount
     }
     
-    func usedCount() -> UInt {
-        var usedCount:UInt = 0
-        for set: NSSet? in self.dictionaryOfSetsOfUsedObjects.allValues {
-            usedCount += set.count()
+    var usedCount: Int {
+        var usedCount = 0
+        for set in dictionaryOfSetsOfUsedObjects.values {
+            usedCount += set.count
         }
         return usedCount
     }
     
-    func count() -> UInt {
-        return self.unusedCount() + self.usedCount()
+    var count: Int {
+        unusedCount + usedCount
     }
-    
     
     // MARK: - Enqueueing and dequeuing objects
     
-    func enqueueReusableObject(reusableObject: MBReusableObject!) {
-        if !reusableObject.NSObject(Selector("reuseIdentifier")) ||
-            (reusableObject.reuseIdentifier == nil) { return }
-        
-        self.setOfUsedObjectsWithIdentifier(identifier: reusableObject.reuseIdentifier.remove(at: reusableObject))
-        self.setOfUsedObjectsWithIdentifier = reusableObject.reuseIdentifier.removeObject(reusableObject)
-        self.setOfUnusedObjectsWithIdentifier = reusableObject.reuseIdentifier.addObject(reusableObject)
+    func enqueueReusableObject(_ reusableObject: MBReusableObject) {
+        guard let reuseIdentifier = reusableObject.reuseIdentifier else { return }
+        setOfUsedObjects(withIdentifier: reuseIdentifier).remove(reusableObject)
+        setOfUnusedObjects(withIdentifier: reuseIdentifier).add(reusableObject)
     }
     
-    
-    func dequeueReusableObjectWithIdentifier(identifier:String!) -> MBReusableObject! {
+    func dequeueReusableObject(withIdentifier identifier: String) -> MBReusableObject? {
+        var reusableObject = setOfUnusedObjects(withIdentifier: identifier).anyObject() as? MBReusableObject
         
-        var reusableObject:MBReusableObject! = self.ofUnusedObjectsWithIdentifier = identifier.anyObject()
-        
-        if (reusableObject == nil) {
-            reusableObject = self.newReuseObjectWithIdentifier(identifier: identifier)
+        if reusableObject == nil {
+            reusableObject = newReuseObject(withIdentifier: identifier)
             
             if reusableObject == nil {
-                NSException.raise(MBReuseQueueEmptyException, format:"No class or nib was registered with the MBReuseQueue for identifier %@", identifier)
+                NSException(name: NSExceptionName(rawValue: MBReuseQueueEmptyException), reason: "No class or nib was registered with the ACReuseQueue for identifier \(identifier)", userInfo: nil).raise()
             }
         }
         
-        self.ofUsedObjectsWithIdentifier = identifier.addObject(reusableObject)
-        self.ofUnusedObjectsWithIdentifier = identifier.removeObject(reusableObject)
+        setOfUsedObjects(withIdentifier: identifier).add(reusableObject!)
+        setOfUnusedObjects(withIdentifier: identifier).remove(reusableObject!)
         
-        if reusableObject.respondsToSelector(Selector("prepareForReuse")) {
-            reusableObject.prepareForReuse()
-        }
+        reusableObject?.prepareForReuse()
         
         return reusableObject
     }
     
     // MARK: - Registring classes or nibs
-    
-    func registerNib(nib:UINib!, forObjectReuseIdentifier identifier:String!) {
-        self.dictionaryOfRegisteredClassesOrNibs[identifier!] = nib
+    func registerNib(_ nib: UINib, forObjectReuseIdentifier identifier: String) {
+        dictionaryOfRegisteredClassesOrNibs[identifier] = nib
     }
     
-    func registerNibWithName(nibName:String!, bundle nibBundle:Bundle!, forObjectReuseIdentifier identifier:String!) {
-        self.registerNib(nib: UINib(nibName: nibName, bundle:nibBundle), forObjectReuseIdentifier:identifier)
+    func registerNib(withName nibName: String, bundle nibBundle: Bundle?, forObjectReuseIdentifier identifier: String) {
+        registerNib(UINib(nibName: nibName, bundle: nibBundle), forObjectReuseIdentifier: identifier)
     }
     
-    func registerClass(objectClass: AnyClass, forObjectReuseIdentifier identifier: String!) {
-        if (objectClass != nil) {
-            self.dictionaryOfRegisteredClassesOrNibs[identifier!] = NSStringFromClass(objectClass)
+    func registerClass(_ objectClass: AnyClass?, forObjectReuseIdentifier identifier: String) {
+        if let objectClass = objectClass {
+            dictionaryOfRegisteredClassesOrNibs[identifier] = NSStringFromClass(objectClass)
         } else {
-            self.dictionaryOfRegisteredClassesOrNibs.removeObject(forKey: identifier!)
+            dictionaryOfRegisteredClassesOrNibs.removeValue(forKey: identifier)
         }
     }
     
-    // MARK: - creating objects
-    
-    func newReuseObjectWithIdentifier(identifier:String!) -> MBReusableObject! {
-        
-        var object:AnyObject! = nil
-        
-        let classOrNib:AnyObject! = self.dictionaryOfRegisteredClassesOrNibs[identifier!] as AnyObject
-        
-        if classOrNib.isKindOfClass(String.self) {
-            let cls:AnyClass = NSClassFromString(classOrNib as! String)!
-            object = cls
-            if object.responds(to: #selector(UITableViewHeaderFooterView.init(reuseIdentifier:))) {
-                object = object(reuseIdentifier: identifier)
-            } else {
-                object = object
-                if object.responds(to: Selector(("setReuseIdentifier:"))) {
-                    object.reuseIdentifier = identifier
-                }
+    // MARK: - Creating objects
+    func newReuseObject(withIdentifier identifier: String) -> MBReusableObject? {
+        var object: MBReusableObject?
+        if let classOrNib = dictionaryOfRegisteredClassesOrNibs[identifier] {
+            if let className = classOrNib as? String,
+               let cls = NSClassFromString(className) as? MBReusableObject.Type {
+                object = cls.init(reuseIdentifier: identifier)
+            } else if let nib = classOrNib as? UINib {
+                let objects = nib.instantiate(withOwner: nil, options: nil)
+                object = objects.last as? MBReusableObject
             }
-            
-        } else if classOrNib.isKind(UINib.self) {
-            let nib: UINib! = (classOrNib as! UINib)
-            let objects:[AnyObject]! = nib.instantiateWithOwner(nil, options:nil)
-            object = objects.lastObject()
-            if object.responds(to: Selector(("setReuseIdentifier:"))) {
-                object.reuseIdentifier = identifier
-            }
+            object?.reuseIdentifier = identifier
         }
-        return object as? any MBReusableObject
+        return object
     }
     
-    // MARK: - remove objects
-    
-    
-    func removeAllUnusedObjects() {
-        self.dictionaryOfSetsOfUnusedObjects.removeAllObjects()
+    // MARK: - Remove objects
+    @objc func removeAllUnusedObjects() {
+        dictionaryOfSetsOfUnusedObjects.removeAll()
     }
 }
