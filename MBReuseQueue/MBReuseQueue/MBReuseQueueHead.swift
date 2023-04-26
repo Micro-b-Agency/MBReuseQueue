@@ -15,8 +15,8 @@ class MBReuseQueueHead: NSObject {
     var maxUnusedCount: UInt = 0
     
     private var dictionaryOfRegisteredClassesOrNibs = [String: Any]()
-    private var dictionaryOfSetsOfUnusedObjects = [String: [MBReusableObject]]()
-    private var setOfUsedObjects = [MBReusableObject]()
+    private var dictionaryOfSetsOfUnusedObjects = [String: [any MBReusableObject]]()
+    private var setOfUsedObjects = [any MBReusableObject]()
     
     var unusedCount: UInt {
         var count: UInt = 0
@@ -34,7 +34,7 @@ class MBReuseQueueHead: NSObject {
         return usedCount + unusedCount
     }
     
-    func enqueueReusableObject(_ reusableObject: MBReusableObject) {
+    func enqueueReusableObject(_ reusableObject: any MBReusableObject) {
         let identifier = reusableObject.reuseIdentifier
         var setOfUnusedObjects = dictionaryOfSetsOfUnusedObjects[identifier!]
         setOfUnusedObjects?.insert(reusableObject, at: 1)
@@ -47,7 +47,7 @@ class MBReuseQueueHead: NSObject {
         }
     }
     
-    func dequeueReusableObject(withIdentifier identifier: String) -> MBReusableObject? {
+    func dequeueReusableObject(withIdentifier identifier: String) -> (any MBReusableObject)? {
         guard let setOfUnusedObjects = dictionaryOfSetsOfUnusedObjects[identifier],
               let reusableObject = setOfUnusedObjects.first else {
             return nil

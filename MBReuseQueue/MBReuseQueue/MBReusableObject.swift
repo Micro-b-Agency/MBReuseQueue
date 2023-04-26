@@ -16,4 +16,3 @@ protocol MBReusableObject: AnyObject {
 
 //extension UITableViewCell: MBReusableObject {}
 //extension UICollectionReusableView: MBReusableObject {}
-

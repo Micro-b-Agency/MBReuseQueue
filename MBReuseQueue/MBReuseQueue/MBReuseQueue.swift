@@ -77,20 +77,20 @@ class MBReuseQueue {
     
     // MARK: - Enqueueing and dequeuing objects
     
-    func enqueueReusableObject(_ reusableObject: MBReusableObject) {
+    func enqueueReusableObject(_ reusableObject: any MBReusableObject) {
         guard let reuseIdentifier = reusableObject.reuseIdentifier else { return }
         setOfUsedObjects(withIdentifier: reuseIdentifier).remove(reusableObject)
         setOfUnusedObjects(withIdentifier: reuseIdentifier).add(reusableObject)
     }
     
-    func dequeueReusableObject(withIdentifier identifier: String) -> MBReusableObject? {
-        var reusableObject = setOfUnusedObjects(withIdentifier: identifier).anyObject() as? MBReusableObject
+    func dequeueReusableObject(withIdentifier identifier: String) -> (any MBReusableObject)? {
+        var reusableObject = setOfUnusedObjects(withIdentifier: identifier).anyObject() as? (any MBReusableObject)
         
         if reusableObject == nil {
             reusableObject = newReuseObject(withIdentifier: identifier)
             
             if reusableObject == nil {
-                NSException(name: NSExceptionName(rawValue: MBReuseQueueEmptyException), reason: "No class or nib was registered with the ACReuseQueue for identifier \(identifier)", userInfo: nil).raise()
+                NSException(name: NSExceptionName(rawValue: MBReuseQueueEmptyException), reason: "No class or nib was registered with the MBReuseQueue for identifier \(identifier)", userInfo: nil).raise()
             }
         }
         
@@ -107,7 +107,7 @@ class MBReuseQueue {
         dictionaryOfRegisteredClassesOrNibs[identifier] = nib
     }
     
-    func registerNib(withName nibName: String, bundle nibBundle: Bundle?, forObjectReuseIdentifier identifier: String) {
+    func registerNibWithName(nibName: String, bundle nibBundle: Bundle?, forObjectReuseIdentifier identifier: String) {
         registerNib(UINib(nibName: nibName, bundle: nibBundle), forObjectReuseIdentifier: identifier)
     }
     
@@ -121,15 +121,15 @@ class MBReuseQueue {
     
     // MARK: - Creating objects
     
-        func newReuseObject(withIdentifier identifier: String) -> MBReusableObject? {
-            var object: MBReusableObject?
+    func newReuseObject(withIdentifier identifier: String) -> (any MBReusableObject)? {
+        var object: (any MBReusableObject)?
             if let classOrNib = dictionaryOfRegisteredClassesOrNibs[identifier] {
                 if let className = classOrNib as? String,
-                   let cls = NSClassFromString(className) as? MBReusableObject.Type {
+                   let cls = NSClassFromString(className) as? any MBReusableObject.Type {
                     object = cls.init(reuseIdentifier: identifier)
                 } else if let nib = classOrNib as? UINib {
                     let objects = nib.instantiate(withOwner: nil, options: nil)
-                    object = objects.last as? MBReusableObject
+                    object = objects.last as? (any MBReusableObject)
                 }
                 object?.reuseIdentifier = identifier
             }

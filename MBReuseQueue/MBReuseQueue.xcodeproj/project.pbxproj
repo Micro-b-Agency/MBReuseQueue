@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F73DAB629F86BB400D850C7 /* MBReuseQueueHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73DAB529F86BB400D850C7 /* MBReuseQueueHead.swift */; };
-		2F73DAB829F9010D00D850C7 /* MBReusableTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F73DAB729F9010D00D850C7 /* MBReusableTest.xib */; };
-		2F73DABA29F9014600D850C7 /* MBReuseQueueTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F73DAB929F9014600D850C7 /* MBReuseQueueTests-Info.plist */; };
+		2F73DABC29F9117B00D850C7 /* MBReusableTestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73DABB29F9117B00D850C7 /* MBReusableTestObject.swift */; };
 		2F93A3B429F15D9F00CECECE /* MBReuseQueue.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3B329F15D9F00CECECE /* MBReuseQueue.docc */; };
 		2F93A3BA29F15D9F00CECECE /* MBReuseQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F93A3AF29F15D9F00CECECE /* MBReuseQueue.framework */; };
 		2F93A3BF29F15D9F00CECECE /* MBReuseQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A3BE29F15D9F00CECECE /* MBReuseQueueTests.swift */; };
@@ -29,8 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2F73DAB529F86BB400D850C7 /* MBReuseQueueHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBReuseQueueHead.swift; sourceTree = "<group>"; };
-		2F73DAB729F9010D00D850C7 /* MBReusableTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBReusableTest.xib; sourceTree = "<group>"; };
-		2F73DAB929F9014600D850C7 /* MBReuseQueueTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MBReuseQueueTests-Info.plist"; sourceTree = "<group>"; };
+		2F73DABB29F9117B00D850C7 /* MBReusableTestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBReusableTestObject.swift; sourceTree = "<group>"; };
 		2F93A3AF29F15D9F00CECECE /* MBReuseQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBReuseQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F93A3B329F15D9F00CECECE /* MBReuseQueue.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MBReuseQueue.docc; sourceTree = "<group>"; };
 		2F93A3B929F15D9F00CECECE /* MBReuseQueueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBReuseQueueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,8 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				2F93A3BE29F15D9F00CECECE /* MBReuseQueueTests.swift */,
-				2F73DAB729F9010D00D850C7 /* MBReusableTest.xib */,
-				2F73DAB929F9014600D850C7 /* MBReuseQueueTests-Info.plist */,
+				2F73DABB29F9117B00D850C7 /* MBReusableTestObject.swift */,
 			);
 			path = MBReuseQueueTests;
 			sourceTree = "<group>";
@@ -204,8 +201,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F73DAB829F9010D00D850C7 /* MBReusableTest.xib in Resources */,
-				2F73DABA29F9014600D850C7 /* MBReuseQueueTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F73DABC29F9117B00D850C7 /* MBReusableTestObject.swift in Sources */,
 				2F93A3BF29F15D9F00CECECE /* MBReuseQueueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
