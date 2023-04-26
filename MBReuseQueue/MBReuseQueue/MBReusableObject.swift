@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol MBReusableObject: AnyObject {
+    init?(reuseIdentifier: String?)
     var reuseIdentifier: String? { get set }
     func prepareForReuse()
 }

@@ -120,20 +120,21 @@ class MBReuseQueue {
     }
     
     // MARK: - Creating objects
-    func newReuseObject(withIdentifier identifier: String) -> MBReusableObject? {
-        var object: MBReusableObject?
-        if let classOrNib = dictionaryOfRegisteredClassesOrNibs[identifier] {
-            if let className = classOrNib as? String,
-               let cls = NSClassFromString(className) as? MBReusableObject.Type {
-                object = cls.init(reuseIdentifier: identifier)
-            } else if let nib = classOrNib as? UINib {
-                let objects = nib.instantiate(withOwner: nil, options: nil)
-                object = objects.last as? MBReusableObject
+    
+        func newReuseObject(withIdentifier identifier: String) -> MBReusableObject? {
+            var object: MBReusableObject?
+            if let classOrNib = dictionaryOfRegisteredClassesOrNibs[identifier] {
+                if let className = classOrNib as? String,
+                   let cls = NSClassFromString(className) as? MBReusableObject.Type {
+                    object = cls.init(reuseIdentifier: identifier)
+                } else if let nib = classOrNib as? UINib {
+                    let objects = nib.instantiate(withOwner: nil, options: nil)
+                    object = objects.last as? MBReusableObject
+                }
+                object?.reuseIdentifier = identifier
             }
-            object?.reuseIdentifier = identifier
+            return object
         }
-        return object
-    }
     
     // MARK: - Remove objects
     @objc func removeAllUnusedObjects() {
